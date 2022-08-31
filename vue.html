@@ -7,24 +7,74 @@
     <title>Vue</title>
 </head>
 <body>
-    <div id="myApp">
-        
+
+    <div id ="contenedor">
         <h1>
             {{name}}
         </h1>
+        <p>
+            {{lastname}}
+        </p>
+        <form>
+            <fieldset>
+                <legend>Datos Personales</legend>
+                <input type = "text" v-model = "name" name = "">
+                <input type = "text" v-model = "lastname" lastname = "">
 
+                <button @click="saludar">
+                    saludar
+                </button>
+            </fieldset>
+        </form>
+            <fieldset>
+                <legend>Calculadora</legend>
+                <input type = "text" v-model = "numero1" numero1 = "">
+                <input type = "text" v-model = "numero2" numero2 = "">
+
+                <button @click="sumar">
+                    sumar
+                </button>
+                <h1>
+                    {{resultado}}
+
+                </h1>
+            </fieldset>
     </div>
     <script src="https://unpkg.com/vue@3"></script>
     <script type="text/javascript">
-        const {createApp}=Vue
-        createApp({
+        const {createApp} = Vue
+        const app = createApp({
             data(){
-                return {
-                    name: 'Angel Emmanuel'
+                return{
+                    name: 'Angel',
+                    lastname: 'Higuera',
+                    numero1: 0,
+                    numero2: 0,
+                    resultado: 0,
+                    age:0,
+                    palomilla:[
+                        {name: 'Leon', role:'noob'},
+                        {name: 'Angel', role:'pro'},
+                        {name: 'Galicia', role:'hacker'},
+                    ],
+                    a_name:"",
+                    role:""
+                }
+            },
+            methods:{
+                saludar(){
+                    alert('Hola:' +this.name + " "+this.lastname)
+                },
+                sumar(){
+                    this.resultado = parseInt(this.numero1) + parseInt(this.numero2)
+                },
+                addPalomilla(){
+                    this.palomilla.push({name:this.addPalomilla,role:this.role})
+                    this.a_name = ""
+                    this.role = ""
                 }
             }
-        }).mount('#myApp')
-
+        }).mount('#contenedor')
     </script>
 </body>
 </html>
