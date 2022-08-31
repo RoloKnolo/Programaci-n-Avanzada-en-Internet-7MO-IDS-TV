@@ -9,6 +9,42 @@
 <body>
 
     <div id ="contenedor">
+        <h2>pro del salon</h2>
+        <ol>
+            <li v-for="alumno in palomilla">
+                {{alumno.name}}
+                {{alumno.role}}
+
+            </li>
+
+        </ol>
+        <fieldset>
+            <legend>
+                nuevo alumno
+            </legend>
+            <input type="text" v-model="a_name">
+            <input type="text" v-model="role">
+            <button @click="addpalomilla">
+                save
+            </button>
+        </fieldset>
+
+
+        <hr>
+        <fieldset>
+            <label >
+                ingrese su edad
+            </label>
+            <input type="" v-if="age" name="">
+            <h1 v-if="age>=18">
+                pasele a pistear
+            </h1>
+            <h1 v-else>
+                fuga pa la casa
+            </h1>
+
+        </fieldset>
+        <hr>
         <h1>
             {{name}}
         </h1>
@@ -25,20 +61,19 @@
                     saludar
                 </button>
             </fieldset>
-        </form>
             <fieldset>
                 <legend>Calculadora</legend>
-                <input type = "text" v-model = "numero1" numero1 = "">
-                <input type = "text" v-model = "numero2" numero2 = "">
+                <input type = "text" v-model = "num1" placeholder="valor1">
+                <input type = "text" v-model = "num2" placeholder="valor2">
 
                 <button @click="sumar">
                     sumar
                 </button>
                 <h1>
-                    {{resultado}}
-
+                    {{result}}
                 </h1>
             </fieldset>
+        </form>
     </div>
     <script src="https://unpkg.com/vue@3"></script>
     <script type="text/javascript">
