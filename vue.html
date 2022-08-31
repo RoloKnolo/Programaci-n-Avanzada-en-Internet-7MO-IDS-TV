@@ -9,12 +9,11 @@
 <body>
 
     <div id ="contenedor">
-        <h2>pro del salon</h2>
+        <h2>Pro del salon</h2>
         <ol>
             <li v-for="alumno in palomilla">
                 {{alumno.name}}
                 {{alumno.role}}
-
             </li>
 
         </ol>
@@ -28,7 +27,6 @@
                 save
             </button>
         </fieldset>
-
 
         <hr>
         <fieldset>
@@ -63,14 +61,14 @@
             </fieldset>
             <fieldset>
                 <legend>Calculadora</legend>
-                <input type = "text" v-model = "num1" placeholder="valor1">
-                <input type = "text" v-model = "num2" placeholder="valor2">
+                <input type = "text" v-model = "numero1" numero1="valor1">
+                <input type = "text" v-model = "numero2" numero2="valor2">
 
                 <button @click="sumar">
                     sumar
                 </button>
                 <h1>
-                    {{result}}
+                    {{resultado}}
                 </h1>
             </fieldset>
         </form>
