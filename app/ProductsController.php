@@ -2,10 +2,8 @@
 
   session_start();  
 
-  Class ProductsController
-  {
-    public function getProducts() 
-    {
+  Class ProductsController{
+    public function getProducts() {
       $curl = curl_init();
 
       curl_setopt_array($curl, array(
@@ -18,9 +16,7 @@
         CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
         CURLOPT_CUSTOMREQUEST => 'GET',
         CURLOPT_HTTPHEADER => array(
-          'Authorization: Bearer '.$_SESSION["token"]
-        ),
-      ));
+          'Authorization: Bearer '.$_SESSION["token"]),));
 
       $response = curl_exec($curl);
 
@@ -28,10 +24,7 @@
       $response=json_decode($response);
 
       if (isset($response->code) && $response->code>0){
-        
-      
-    
-    }
+      }
     }
   }
 ?>

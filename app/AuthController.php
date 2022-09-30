@@ -14,7 +14,6 @@ if(isset($_POST["action"])){
     Class AuthController{
         public function login($email,$password){
          
-
                 $curl = curl_init();
 
                 curl_setopt_array($curl, array(
@@ -47,9 +46,7 @@ if(isset($_POST["action"])){
                     header("Location: ../products?success");
                   }else{
                     header("Location: ../?error");
-                  }
-
-            }
+                  }                
+        }
     }
-   
 ?>
