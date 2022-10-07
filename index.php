@@ -1,72 +1,43 @@
+<?php
+  include "app/config.php";
+  var_dump($_POST);
+?>
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Panel</title>
-		<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css">
-		<!-- <link rel="stylesheet" type="text/css" href="public/css/main.css"> -->
-		<style type="text/css">
-			.registro{  
-				min-height: 600px;
-			}
-		</style>
-	</head>
-	<body>
-		<div class="container recolor" >
-				
-			<section>
-				
-				<div class="row registro justify-content-md-center align-items-center">
-					
-					<div class="col-md-6 col-sm-12 p-3 border">
-						<form method="post" action="app/AuthController.php">
-					
-							<h1 class="text-center">
-								Acceso al panel
-							</h1>
-							<p>
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-								tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-								quis nostrud exercitat
-							</p>
-							<div class="mb-3">
-							   <label>
-									Correo electrónico
-								</label> 
-								<div class="input-group mb-3">
-								  <span class="input-group-text" id="basic-addon1">
-								  	@
-								  </span>
-								  <input name="email"  type="text" class="form-control" placeholder="Correo electrónico" aria-label="Username" aria-describedby="basic-addon1">
-								</div>
-							</div>  
-								
-							<div class="mb-3">
-								<label>
-									Contraseña
-								</label>
-								<div class="input-group mb-3">
-								  <span class="input-group-text" id="basic-addon1">
-								  	@
-								  </span>
-								  <input name="password" type="password" class="form-control" placeholder="* * * * * * *" aria-label="Username" aria-describedby="basic-addon1">
-								</div>
-							</div> 
-							<button class="btn btn-primary col-12" type="submit">
-								A C C E D E R
-							</button>
-							<input type="hidden" name="action" value="access" />
-						</form>
-					</div>
-				</div>
-			</section>
-				
-			<section>
-				
-			</section>
-			 
-		</div>
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" type="text/javascript"></script>
-	</body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://www.markuptag.com/bootstrap/5/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container recolor">
+        <section>
+            
+            <div class="col-5 text-center position-absolute top-50 start-50 translate-middle">
+                <form  method="post" action="<?=BASE_PATH ?>auth">
+
+                    <label for="" class="fs-2 fst-italic">Email</label>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">@</span>
+                        <input type="text" class="form-control" placeholder="correo electronico" aria-label="Username" aria-describedby="basic-addon1" name="email" required>
+                      </div>
+                    <label for="" class="fs-2 fst-italic">Password</label>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">**</span>
+                        <input type="password" class="form-control" placeholder="contraseña" aria-label="Username" aria-describedby="basic-addon1" name="password" required>
+                      </div>
+                      <button type="submit" class="btn btn-dark">Accept</button>
+                      <input type="hidden" name="action" value="access">
+                      <input type="hidden" name="super_token" value="<?= $_SESSION['super_token'] ?>">
+                    
+                </form>
+              
+              </div>
+
+        </section>
+        
+      </div>
+</body>
 </html>
