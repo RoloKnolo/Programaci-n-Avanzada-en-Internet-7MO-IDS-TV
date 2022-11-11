@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\User;
 class UserController extends Controller
 {
     /**
@@ -13,7 +13,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        echo "hello programming";
+        //return User::all();
+        $users = User::all();
+        return view ('users.index',compact('users'));
     }
 
     /**
@@ -23,8 +25,7 @@ class UserController extends Controller
      */
     public function create()
     {
-
-        return view ('create_user');
+        return view('users.create_user');
     }
 
     /**
@@ -35,7 +36,8 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        echo $request ->name;
+        $user=User::create($request->all());
+        return $user;
     }
 
     /**
@@ -46,7 +48,9 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        echo "hello ",$id;
+
+        $user = User::find($id);
+        return view ('users.update',compact('user'));
     }
 
     /**
@@ -57,7 +61,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+
     }
 
     /**
@@ -67,9 +71,14 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $user = User::find($request->id);
+
+        if ($user){
+            $user->update($request->all());
+            
+        }
     }
 
     /**
