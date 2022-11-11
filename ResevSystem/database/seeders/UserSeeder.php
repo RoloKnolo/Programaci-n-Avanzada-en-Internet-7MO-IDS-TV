@@ -16,7 +16,7 @@ class UserSeeder extends Seeder
     public function run()
     {
         $user = new User();
-        $user->name = 'Edgar';
+        $user->name = 'Angel';
 
         $user->email = 'e@gmail.com';
         $user->password =bcrypt ('pass');
